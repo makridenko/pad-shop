@@ -20,7 +20,7 @@ services:
     volumes:
       - ./kernel/static:/static
     ports:
-      - "82:80"
+      - "82:82"
     depends_on:
       - web
 
