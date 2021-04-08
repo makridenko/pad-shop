@@ -14,13 +14,13 @@ services:
       - ./kernel/.env
     build: ./kernel
     ports:
-      - "8000:8020"
+      - "8020:8000"
   nginx:
     build: ./nginx
     volumes:
       - ./kernel/static:/static
     ports:
-      - "80:82"
+      - "82:80"
     depends_on:
       - web
 
