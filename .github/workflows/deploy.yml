@@ -1,0 +1,20 @@
+name: Deploy Workflow
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to pruduction server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 94.228.114.208
+          username: developer
+          key: ${{ secrets.ID_RSA }}
+          script: |
+            cd pad-shop
+            git pull origin master
+            bash deploy.sh
